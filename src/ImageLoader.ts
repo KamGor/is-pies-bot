@@ -4,7 +4,10 @@ import * as tf from '@tensorflow/tfjs-node';
 export class ImageLoader {
     public async loadImage(imagePath) {
         const imageBuffer = await sharp(Buffer.from(await (await fetch(imagePath)).arrayBuffer()))
-            .resize(224, 224)
+            .resize({
+                fit: sharp.fit.contain,
+                width: 800,
+            })
             .toFormat("jpg")
             .toBuffer();
 
