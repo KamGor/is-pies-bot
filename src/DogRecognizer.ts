@@ -37,7 +37,7 @@ export class DogRecognizer {
                 return acc || this.dogBreeds.has(curr);
             }, false);
 
-            return acc || (isPies && curr.probability > 0.35);
+            return acc || (isPies && curr.probability > 0.25);
         }, false);
 
         console.log(log);
